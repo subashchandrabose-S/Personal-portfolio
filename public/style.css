@@ -1,0 +1,78 @@
+/* Full animated background */
+.bg-animated {
+  background: linear-gradient(-45deg, #0a0010, #1a0033, #0f001a, #2a004d);
+  background-size: 400% 400%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  animation: gradientShift 18s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Smooth fade-in animation */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.2s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Navigation link hover effect */
+.nav-link {
+  position: relative;
+  padding: 0.5rem 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #a855f7, #ec4899);
+  transition: width 0.4s ease;
+}
+
+.nav-link:hover {
+  color: #ddd;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Hover glow effect for buttons */
+.hover-glow, .hover-glow * {
+  transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(213, 210, 216, 0.4);
+}
+
+w-40 h-40 mb-8 rounded-full overflow-hidden border-4 border-purple-500 shadow-2xl{
+  width: 20rem;
+  height: 20rem;
+}
