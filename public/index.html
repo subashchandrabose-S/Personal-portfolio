@@ -3,33 +3,20 @@
 
 <head>
   <meta charset="UTF-8" />
-
-  .bg-animated {
-  background: linear-gradient(-45deg, #330a4b, #420735, #39055c, #4b0857);
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  }
-
-  @keyframes gradient {
-  0% {
-  background-position: 0% 50%;
-  }
-
-  50% {
-  background-position: 100% 50%;
-  }
-
-  100% {
-  background-position: 0% 50%;
-  }
-  }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subash Portfolio</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Filter Styles -->
+  <link rel="stylesheet" href="filter.css">
+  <!-- Email.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <!-- VanillaTilt.js for 3D Tilt Effect -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 </head>
 
 <body class="font-sans overflow-x-hidden relative">
@@ -62,482 +49,278 @@
         <!-- Logo / Brand -->
         <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
           <div class="flex shrink-0 items-center">
-            <!-- Optional logo text or image -->
             <span class="text-xl font-bold text-white">Subash Chandra Bose S</span>
           </div>
 
           <!-- Desktop Menu -->
           <div class="hidden sm:ml-8 sm:block">
-            <header id="home"
-              class="relative z-10 flex flex-col items-center justify-center h-screen px-6 text-center text-white">
-              <div class="w-64 h-64 mb-8 rounded-full overflow-hidden border-2 border-purple-600 shadow-2xl">
-                <img src="https://i.ibb.co/PzfYVzML/subash-first.jpg" alt="Subash" class="w-full h-full object-cover">
-              </div>
-              <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
-                Hi, I'm <span id="typing-text"
-                  class="typing-cursor text-transparent bg-clip-text bg-gradient-to-r from-purple-200 to-violet-300"></span>
-              </h1>
-              <p class="text-lg md:text-2xl mb-8 max-w-2xl text-gray-200">
-                A passionate <span class="text-purple-300 font-semibold">Fullstack Developer</span> crafting beautiful
-                and
-                responsive web experiences.
-              </p>
-              <!-- CTA Buttons (Optional) -->
-              <!-- <div class="flex flex-col sm:flex-row gap-5">
-      <a href="#projects" class="px-7 py-3 bg-gradient-to-r from-purple-600 to-violet-700 rounded-full hover:from-purple-500 hover:to-violet-600 shadow-lg transform hover:scale-105 transition">
-        View My Work
-      </a>
-      <a href="#about" class="px-7 py-3 border-2 border-purple-400 rounded-full hover:bg-purple-900/30 shadow transition">
+            <div class="flex space-x-6">
+              <a href="#home" class="rounded-md px-3 py-2 text-sm font-medium bg-purple-700 text-white">Home</a>
+              <a href="#skills"
+                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-purple-900 hover:text-white">Skills</a>
+              <a href="#projects"
+                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-purple-900 hover:text-white">Projects</a>
+              <a href="#about"
+                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-purple-900 hover:text-white">About</a>
+              <a href="#contact"
+                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-purple-900 hover:text-white">Contact</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu" class="sm:hidden hidden bg-black/50 backdrop-blur-md">
+      <div class="space-y-1 px-2 pt-2 pb-3">
+        <a href="#home" class="block rounded-md px-3 py-2 text-base font-medium text-white bg-purple-700">Home</a>
+        <a href="#skills"
+          class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-purple-900">Skills</a>
+        <a href="#projects"
+          class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-purple-900">Projects</a>
+        <a href="#about"
+          class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-purple-900">About</a>
+        <a href="#contact"
+          class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-purple-900">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="home"
+    class="relative z-10 flex flex-col items-center justify-center h-screen px-6 text-center text-white">
+    <div class="w-64 h-64 mb-8 rounded-full overflow-hidden border-2 border-purple-600 shadow-2xl">
+      <img src="https://i.ibb.co/PzfYVzML/subash-first.jpg" alt="Subash" class="w-full h-full object-cover">
+    </div>
+    <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
+      Hi, I'm <span id="typing-text"
+        class="typing-cursor text-transparent bg-clip-text bg-gradient-to-r from-purple-200 to-violet-300"></span>
+    </h1>
+    <p class="text-lg md:text-2xl mb-8 max-w-2xl text-gray-200">
+      A passionate <span class="text-purple-300 font-semibold">Fullstack Developer</span> crafting beautiful and
+      responsive web experiences.
+    </p>
+  </header>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 px-6 reveal">
+    <div class="max-w-6xl mx-auto text-center text-white">
+      <h2 class="text-4xl font-bold mb-12">My Skills</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Frontend -->
+        <div
+          class="interactive-card bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
+          <h3 class="text-2xl font-semibold text-purple-300 mb-4">Frontend</h3>
+          <ul class="space-y-2 text-gray-200">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>React.js</li>
+            <li>Vue.js</li>
+          </ul>
+        </div>
+
+        <!-- Backend -->
+        <div
+          class="interactive-card bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
+          <h3 class="text-2xl font-semibold text-purple-300 mb-4">Backend</h3>
+          <ul class="space-y-2 text-gray-200">
+            <li>Node.js</li>
+            <li>Express.js</li>
+            <li>Java</li>
+            <li>Python</li>
+          </ul>
+        </div>
+
+        <!-- Database -->
+        <div
+          class="interactive-card bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
+          <h3 class="text-2xl font-semibold text-purple-300 mb-4">Database</h3>
+          <ul class="space-y-2 text-gray-200">
+            <li>SQL</li>
+            <li>MongoDB</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 px-6 bg-black/20 backdrop-blur-sm reveal">
+    <div class="max-w-6xl mx-auto text-white">
+      <h2
+        class="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-purple-300 to-pink-200 text-transparent bg-clip-text">
         About Me
-      </a>
-    </div> -->
-            </header>
+      </h2>
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <p class="text-lg leading-relaxed text-gray-200">
+            I'm a fullstack developer passionate about building clean, scalable, and user-friendly web applications.
+          </p>
+          <p class="mt-4 text-gray-300">
+            I specialize in MERN stack, React, Node.js, and modern frontend frameworks. I love turning ideas into
+            reality.
+          </p>
+          <div class="mt-8 flex space-x-6 justify-center sm:justify-start">
+            <a href="https://github.com/subashchandrabose-S"
+              class="text-purple-300 hover:text-purple-100 transition hover:underline">GitHub</a>
+            <a href="https://www.linkedin.com/in/subash-chandra-bose-s-35310932b"
+              class="text-purple-300 hover:text-purple-100 transition hover:underline">LinkedIn</a>
+          </div>
+        </div>
+        <div class="flex justify-center">
+          <div
+            class="w-60 h-60 rounded-full bg-gradient-to-tr from-purple-700 to-violet-900 flex items-center justify-center shadow-2xl overflow-hidden">
+            <img src="https://i.ibb.co/Jwg0jL3r/Whats-App-Image-2025-07-30-at-14-01-52-ff56c1f6.jpg" alt="Subash"
+              class="w-full h-full object-cover">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <!-- Skills Section -->
-            <section id="skills" class="py-20 px-6 reveal">
-              <div class="max-w-6xl mx-auto text-center text-white">
-                <h2 class="text-4xl font-bold mb-12">My Skills</h2>
-                <div class="grid md:grid-cols-3 gap-8">
-                  <!-- Frontend -->
-                  <div
-                    class="interactive-card bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
-                    <h3 class="text-2xl font-semibold text-purple-300 mb-4">Frontend</h3>
-                    <ul class="space-y-2 text-gray-200">
-                      <li>HTML</li>
-                      <li>CSS</li>
-                      <li> JavaScript</li>
-                      <li>React.js</li>
-                      <li>Vue.js</li>
-                    </ul>
-                  </div>
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 px-6 reveal">
+    <div class="max-w-6xl mx-auto text-center text-white">
+      <h2 class="text-4xl font-bold mb-12 bg-gradient-to-r from-purple-300 to-pink-200 text-transparent bg-clip-text">
+        My Projects
+      </h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          class="interactive-card bg-black/30 p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
+          <h3 class="text-xl font-semibold mb-2">nursery-ecommerce website</h3>
+          <p class="text-gray-300 mb-4">vite +vue.js+ express.js +mongodb real time order and admin panel with
+            real-time protect adding.</p>
+          <a href="https://nursery-ecommerce.vercel.app/" class="text-purple-300 hover:underline text-sm">Live Demo
+            →</a>
+        </div>
+        <div
+          class="interactive-card bg-black/30 p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
+          <h3 class="text-xl font-semibold mb-2">Portfolio Builder</h3>
+          <p class="text-gray-300 mb-4">A tool for developers to generate portfolios in seconds.</p>
+          <a href="http://subashchandraboselportflio.vercel.app" class="text-purple-300 hover:underline text-sm">View
+            Code →</a>
+        </div>
+        <div
+          class="interactive-card bg-black/30 p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
+          <h3 class="text-xl font-semibold mb-2">TaskFlow App</h3>
+          <p class="text-gray-300 mb-4">Minimalist to-do app with drag & drop and dark mode.</p>
+          <a href="#" class="text-purple-300 hover:underline text-sm">Live Demo →</a>
+        </div>
+        <div
+          class="interactive-card bg-black/30 p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
+          <h3 class="text-xl font-semibold mb-2">Department Symposim Website</h3>
+          <p class="text-gray-300 mb-4">Event website with registration and schedule management.</p>
+          <a href="https://spark-25.vercel.app/" class="text-purple-300 hover:underline text-sm">Live Explore →</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-                  <!-- Backend -->
-                  <div
-                    class="interactive-card bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
-                    <h3 class="text-2xl font-semibold text-purple-300 mb-4">Backend</h3>
-                    <ul class="space-y-2 text-gray-200">
-                      <li>Node.js</li>
-                      <li>Express.js</li>
-                      <li>Java</li>
-                      <li>Python</li>
-                    </ul>
-                  </div>
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 px-6 bg-black/20 backdrop-blur-sm reveal">
+    <div class="max-w-4xl mx-auto text-white">
+      <h2
+        class="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-purple-300 to-pink-200 text-transparent bg-clip-text">
+        Get In Touch
+      </h2>
+      <p class="text-center text-gray-400 mb-12">Have a project in mind? Let's work together!</p>
 
-                  <!-- Database -->
-                  <div
-                    class="interactive-card bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
-                    <h3 class="text-2xl font-semibold text-purple-300 mb-4">Database</h3>
-                    <ul class="space-y-2 text-gray-200">
-                      <li>SQL</li>
-                      <li>MongoDB</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </section>
+      <form class="contact-form" id="contact-form">
+        <div class="grid md:grid-cols-2 gap-6 mb-6">
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your Name" />
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email</label>
+            <input type="email" id="email" name="email" required placeholder="your.email@example.com" />
+          </div>
+        </div>
 
-            <!-- About Section -->
-            <section id="about" class="py-20 px-6 bg-black/20 backdrop-blur-sm reveal">
-              <div class="max-w-6xl mx-auto text-white">
-                <h2
-                  class="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-purple-300 to-pink-200 text-transparent bg-clip-text">
-                  About Me
-                </h2>
-                <div class="grid md:grid-cols-2 gap-10 items-center">
-                  <div>
-                    <p class="text-lg leading-relaxed text-gray-200">
-                      I'm a fullstack developer passionate about building clean, scalable, and user-friendly web
-                      applications.
-                    </p>
-                    <p class="mt-4 text-gray-300">
-                      I specialize in MERN stack, React, Node.js, and modern frontend frameworks. I love turning ideas
-                      into
-                      reality.
-                    </p>
-                    <div class="mt-8 flex space-x-6 justify-center sm:justify-start">
-                      <a href="https://github.com/subashchandrabose-S"
-                        class="text-purple-300 hover:text-purple-100 transition hover:underline">GitHub</a>
-                      <a href="https://www.linkedin.com/in/subash-chandra-bose-s-35310932b"
-                        class="text-purple-300 hover:text-purple-100 transition hover:underline">LinkedIn</a>
-                    </div>
-                  </div>
-                  <div class="flex justify-center">
-                    <div
-                      class="w-60 h-60 rounded-full bg-gradient-to-tr from-purple-700 to-violet-900 flex items-center justify-center shadow-2xl overflow-hidden">
-                      <img src="https://i.ibb.co/Jwg0jL3r/Whats-App-Image-2025-07-30-at-14-01-52-ff56c1f6.jpg"
-                        alt="Subash" class="w-full h-full object-cover">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
+        <div class="mb-6">
+          <label for="subject" class="block text-sm font-medium text-gray-300 mb-2">Subject</label>
+          <input type="text" id="subject" name="subject" required placeholder="What's this about?" />
+        </div>
 
-            <!-- Projects Section -->
-            <section id="projects" class="py-20 px-6 reveal">
-              <div class="max-w-6xl mx-auto text-center text-white">
-                <h2
-                  class="text-4xl font-bold mb-12 bg-gradient-to-r from-purple-300 to-pink-200 text-transparent bg-clip-text">
-                  My Projects
-                </h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  <div
-                    class="interactive-card bg-black/30 p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
-                    <h3 class="text-xl font-semibold mb-2">nursery-ecommerce website</h3>
-                    <p class="text-gray-300 mb-4">vite +vue.js+ express.js +mongodb real time order and admin panel with
-                      real-time
-                      protect adding.</p>
-                    <a href="https://nursery-ecommerce.vercel.app/" class="text-purple-300 hover:underline text-sm">Live
-                      Demo
-                      →</a>
-                  </div>
-                  <div
-                    class="interactive-card bg-black/30 p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
-                    <h3 class="text-xl font-semibold mb-2">Portfolio Builder</h3>
-                    <p class="text-gray-300 mb-4">A tool for developers to generate portfolios in seconds.</p>
-                    <a href="http://subashchandraboselportflio.vercel.app"
-                      class="text-purple-300 hover:underline text-sm">View
-                      Code →</a>
-                  </div>
-                  <div
-                    class="interactive-card bg-black/30 p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
-                    <h3 class="text-xl font-semibold mb-2">TaskFlow App</h3>
-                    <p class="text-gray-300 mb-4">Minimalist to-do app with drag & drop and dark mode.</p>
-                    <a href="#" class="text-purple-300 hover:underline text-sm">Live Demo →</a>
+        <div class="mb-6">
+          <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+          <textarea id="message" name="message" rows="5" required placeholder="Your message here..."></textarea>
+        </div>
 
-                    <body class="font-sans overflow-x-hidden relative">
+        <div class="text-center">
+          <button type="submit" id="submit-btn">
+            <span id="btn-text">Send Message</span>
+          </button>
+        </div>
 
-                      <!-- Animated Background -->
-                      <div class="bg-animated"></div>
+        <div id="form-message" class="hidden"></div>
+      </form>
+    </div>
+  </section>
 
-                      <!-- Navbar -->
-                      <nav class="bg-black/30 backdrop-blur-md text-white sticky top-0 z-50">
-                        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-                          <div class="relative flex h-16 items-center justify-between">
+  <!-- Footer -->
+  <footer class="py-8 text-center text-gray-400 text-sm border-t border-purple-900/20 backdrop-blur-sm bg-black/10">
+    &copy; 2025 Subash Chandra Bose S. All rights reserved.
+  </footer>
 
-                            <!-- Mobile menu button -->
-                            <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                              <button type="button" id="mobile-menu-btn"
-                                class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-purple-900 hover:text-white focus:outline-none">
-                                <span class="sr-only">Open main menu</span>
-                                <!-- Hamburger Icon -->
-                                <svg id="menu-open-icon" class="w-6 h-6 block" fill="none" stroke="currentColor"
-                                  viewBox="0 0 24 24">
-                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                                </svg>
-                                <!-- Close Icon -->
-                                <svg id="menu-close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor"
-                                  viewBox="0 0 24 24">
-                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                              </button>
-                            </div>
+  <!-- Mobile Menu Toggle Script -->
+  <script>
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const openIcon = document.getElementById('menu-open-icon');
+    const closeIcon = document.getElementById('menu-close-icon');
 
-                            <!-- Logo / Brand -->
-                            <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                              <div class="flex shrink-0 items-center">
-                                <!-- Optional logo text or image -->
-                                <span class="text-xl font-bold text-white">Subash Chandra Bose S</span>
-                              </div>
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      openIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    });
 
-                              <!-- Desktop Menu -->
-                              <div class="hidden sm:ml-8 sm:block">
-                                <div class="flex space-x-6">
-                                  <a href="#home"
-                                    class="rounded-md px-3 py-2 text-sm font-medium bg-purple-700 text-white">Home</a>
-                                  <a href="#skills"
-                                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-purple-900 hover:text-white">Skills</a>
-                                  <a href="#projects"
-                                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-purple-900 hover:text-white">Projects</a>
-                                  <a href="#about"
-                                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-purple-900 hover:text-white">About
-                                    Me</a>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+    // Typing Effect Logic
+    const textToType = "Subash Chandra Bose S";
+    const typingElement = document.getElementById('typing-text');
+    let charIndex = 0;
 
-                        <!-- Mobile Menu (Hidden by default) -->
-                        <div id="mobile-menu" class="sm:hidden hidden bg-black/50 backdrop-blur-md">
-                          <div class="space-y-1 px-2 pt-2 pb-3">
-                            <a href="#home"
-                              class="block rounded-md px-3 py-2 text-base font-medium text-white bg-purple-700">Home</a>
-                            <a href="#skills"
-                              class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-purple-900">Skills</a>
-                            <a href="#projects"
-                              class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-purple-900">Projects</a>
-                            <a href="#about"
-                              class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-purple-900">About
-                              Me</a>
-                          </div>
-                        </div>
-                      </nav>
+    function type() {
+      if (charIndex < textToType.length) {
+        typingElement.textContent += textToType.charAt(charIndex);
+        charIndex++;
+        setTimeout(type, 100); // Typing speed
+      }
+    }
 
-                      <!-- Hero Section -->
-                      <header id="home"
-                        class="relative z-10 flex flex-col items-center justify-center h-screen px-6 text-center text-white">
-                        <div class="w-64 h-64 mb-8 rounded-full overflow-hidden border-2 border-purple-600 shadow-2xl">
-                          <img src="https://i.ibb.co/PzfYVzML/subash-first.jpg" alt="Subash"
-                            class="w-full h-full object-cover">
-                        </div>
-                        <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
-                          Hi, I'm <span id="typing-text"
-                            class="typing-cursor text-transparent bg-clip-text bg-gradient-to-r from-purple-200 to-violet-300"></span>
-                        </h1>
-                        <p class="text-lg md:text-2xl mb-8 max-w-2xl text-gray-200">
-                          A passionate <span class="text-purple-300 font-semibold">Fullstack Developer</span> crafting
-                          beautiful
-                          and
-                          responsive web experiences.
-                        </p>
-                        <!-- CTA Buttons (Optional) -->
-                        <!-- <div class="flex flex-col sm:flex-row gap-5">
-      <a href="#projects" class="px-7 py-3 bg-gradient-to-r from-purple-600 to-violet-700 rounded-full hover:from-purple-500 hover:to-violet-600 shadow-lg transform hover:scale-105 transition">
-        View My Work
-      </a>
-      <a href="#about" class="px-7 py-3 border-2 border-purple-400 rounded-full hover:bg-purple-900/30 shadow transition">
-        About Me
-      </a>
-    </div> -->
-                      </header>
+    // Start typing when page loads
+    window.addEventListener('load', type);
 
-                      <!-- Skills Section -->
-                      <section id="skills" class="py-20 px-6 reveal">
-                        <div class="max-w-6xl mx-auto text-center text-white">
-                          <h2 class="text-4xl font-bold mb-12">My Skills</h2>
-                          <div class="grid md:grid-cols-3 gap-8">
-                            <!-- Frontend -->
-                            <div
-                              class="interactive-card bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
-                              <h3 class="text-2xl font-semibold text-purple-300 mb-4">Frontend</h3>
-                              <ul class="space-y-2 text-gray-200">
-                                <li>HTML</li>
-                                <li>CSS</li>
-                                <li> JavaScript</li>
-                                <li>React.js</li>
-                                <li>Vue.js</li>
-                              </ul>
-                            </div>
+    // Scroll Reveal Observer
+    const revealElements = document.querySelectorAll('.reveal');
 
-                            <!-- Backend -->
-                            <div
-                              class="interactive-card bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
-                              <h3 class="text-2xl font-semibold text-purple-300 mb-4">Backend</h3>
-                              <ul class="space-y-2 text-gray-200">
-                                <li>Node.js</li>
-                                <li>Express.js</li>
-                                <li>Java</li>
-                                <li>Python</li>
-                              </ul>
-                            </div>
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
 
-                            <!-- Database -->
-                            <div
-                              class="interactive-card bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
-                              <h3 class="text-2xl font-semibold text-purple-300 mb-4">Database</h3>
-                              <ul class="space-y-2 text-gray-200">
-                                <li>SQL</li>
-                                <li>MongoDB</li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </section>
+    revealElements.forEach(el => revealObserver.observe(el));
 
-                      <!-- About Section -->
-                      <section id="about" class="py-20 px-6 bg-black/20 backdrop-blur-sm reveal">
-                        <div class="max-w-6xl mx-auto text-white">
-                          <h2
-                            class="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-purple-300 to-pink-200 text-transparent bg-clip-text">
-                            About Me
-                          </h2>
-                          <div class="grid md:grid-cols-2 gap-10 items-center">
-                            <div>
-                              <p class="text-lg leading-relaxed text-gray-200">
-                                I'm a fullstack developer passionate about building clean, scalable, and user-friendly
-                                web
-                                applications.
-                              </p>
-                              <p class="mt-4 text-gray-300">
-                                I specialize in MERN stack, React, Node.js, and modern frontend frameworks. I love
-                                turning ideas
-                                into
-                                reality.
-                              </p>
-                              <div class="mt-8 flex space-x-6 justify-center sm:justify-start">
-                                <a href="https://github.com/subashchandrabose-S"
-                                  class="text-purple-300 hover:text-purple-100 transition hover:underline">GitHub</a>
-                                <a href="https://www.linkedin.com/in/subash-chandra-bose-s-35310932b"
-                                  class="text-purple-300 hover:text-purple-100 transition hover:underline">LinkedIn</a>
-                              </div>
-                            </div>
-                            <div class="flex justify-center">
-                              <div
-                                class="w-60 h-60 rounded-full bg-gradient-to-tr from-purple-700 to-violet-900 flex items-center justify-center shadow-2xl overflow-hidden">
-                                <img src="https://i.ibb.co/Jwg0jL3r/Whats-App-Image-2025-07-30-at-14-01-52-ff56c1f6.jpg"
-                                  alt="Subash" class="w-full h-full object-cover">
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </section>
+    // Card Glow Interaction (Optional with Tilt)
+    const cards = document.querySelectorAll('.interactive-card');
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('glow-active');
+      });
+    });
+  </script>
 
-                      <!-- Projects Section -->
-                      <section id="projects" class="py-20 px-6 reveal">
-                        <div class="max-w-6xl mx-auto text-center text-white">
-                          <h2
-                            class="text-4xl font-bold mb-12 bg-gradient-to-r from-purple-300 to-pink-200 text-transparent bg-clip-text">
-                            My Projects
-                          </h2>
-                          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            <div
-                              class="interactive-card bg-black/30 p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
-                              <h3 class="text-xl font-semibold mb-2">nursery-ecommerce website</h3>
-                              <p class="text-gray-300 mb-4">vite +vue.js+ express.js +mongodb real time order and admin
-                                panel with
-                                real-time
-                                protect adding.</p>
-                              <a href="https://nursery-ecommerce.vercel.app/"
-                                class="text-purple-300 hover:underline text-sm">Live
-                                Demo
-                                →</a>
-                            </div>
-                            <div
-                              class="interactive-card bg-black/30 p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
-                              <h3 class="text-xl font-semibold mb-2">Portfolio Builder</h3>
-                              <p class="text-gray-300 mb-4">A tool for developers to generate portfolios in seconds.</p>
-                              <a href="http://subashchandraboselportflio.vercel.app"
-                                class="text-purple-300 hover:underline text-sm">View
-                                Code →</a>
-                            </div>
-                            <div
-                              class="interactive-card bg-black/30 p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
-                              <h3 class="text-xl font-semibold mb-2">TaskFlow App</h3>
-                              <p class="text-gray-300 mb-4">Minimalist to-do app with drag & drop and dark mode.</p>
-                              <a href="#" class="text-purple-300 hover:underline text-sm">Live Demo →</a>
-                            </div>
-                            <div
-                              class="interactive-card bg-black/30 p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
-                              <h3 class="text-xl font-semibold mb-2">Department Symposim Website</h3>
-                              <p class="text-gray-300 mb-4">Minimalist to-do app with drag & drop and dark mode.</p>
-                              <a href="https://spark-25.vercel.app/"
-                                class="text-purple-300 hover:underline text-sm">Live Explore
-                                →</a>
-                            </div>
-                          </div>
-                        </div>
-                      </section>
+  <!-- Project Filter Logic -->
+  <script src="filter.js"></script>
 
-                      <!-- Contact Section -->
-                      <section id="contact" class="py-20 px-6 bg-black/20 backdrop-blur-sm reveal">
-                        <div class="max-w-4xl mx-auto text-white">
-                          <h2
-                            class="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-purple-300 to-pink-200 text-transparent bg-clip-text">
-                            Get In Touch
-                          </h2>
-                          <p class="text-center text-gray-400 mb-12">Have a project in mind? Let's work together!</p>
+  <!-- Contact Form Logic -->
+  <script src="contact.js"></script>
 
-                          <form class="contact-form" id="contact-form">
-                            <div class="grid md:grid-cols-2 gap-6 mb-6">
-                              <div>
-                                <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
-                                <input type="text" id="name" name="name" required placeholder="Your Name" />
-                              </div>
-                              <div>
-                                <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email</label>
-                                <input type="email" id="email" name="email" required
-                                  placeholder="your.email@example.com" />
-                              </div>
-                            </div>
-
-                            <div class="mb-6">
-                              <label for="subject" class="block text-sm font-medium text-gray-300 mb-2">Subject</label>
-                              <input type="text" id="subject" name="subject" required
-                                placeholder="What's this about?" />
-                            </div>
-
-                            <div class="mb-6">
-                              <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
-                              <textarea id="message" name="message" rows="5" required
-                                placeholder="Your message here..."></textarea>
-                            </div>
-
-                            <div class="text-center">
-                              <button type="submit" id="submit-btn">
-                                <span id="btn-text">Send Message</span>
-                              </button>
-                            </div>
-
-                            <div id="form-message" class="hidden"></div>
-                          </form>
-                        </div>
-                      </section>
-
-                      <!-- Footer -->
-                      <footer
-                        class="py-8 text-center text-gray-400 text-sm border-t border-purple-900/20 backdrop-blur-sm bg-black/10">
-                        &copy; 2025 Subash Chandra Bose S. All rights reserved.
-                      </footer>
-
-                      <!-- Mobile Menu Toggle Script -->
-                      <script>
-                        const mobileBtn = document.getElementById('mobile-menu-btn');
-                        const mobileMenu = document.getElementById('mobile-menu');
-                        const openIcon = document.getElementById('menu-open-icon');
-                        const closeIcon = document.getElementById('menu-close-icon');
-
-                        mobileBtn.addEventListener('click', () => {
-                          mobileMenu.classList.toggle('hidden');
-                          openIcon.classList.toggle('hidden');
-                          closeIcon.classList.toggle('hidden');
-                        });
-
-                        // Typing Effect Logic
-                        const textToType = "Subash Chandra Bose S";
-                        const typingElement = document.getElementById('typing-text');
-                        let charIndex = 0;
-
-                        function type() {
-                          if (charIndex < textToType.length) {
-                            typingElement.textContent += textToType.charAt(charIndex);
-                            charIndex++;
-                            setTimeout(type, 100); // Typing speed
-                          }
-                        }
-
-                        // Start typing when page loads
-                        window.addEventListener('load', type);
-
-                        // Scroll Reveal Observer
-                        const revealElements = document.querySelectorAll('.reveal');
-
-                        const revealObserver = new IntersectionObserver((entries) => {
-                          entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                              entry.target.classList.add('active');
-                            }
-                          });
-                        }, { threshold: 0.1 });
-
-                        revealElements.forEach(el => revealObserver.observe(el));
-
-                        // Card Glow Interaction (Optional with Tilt)
-                        const cards = document.querySelectorAll('.interactive-card');
-                        cards.forEach(card => {
-                          card.addEventListener('click', () => {
-                            card.classList.toggle('glow-active');
-                          });
-                        });
-                      </script>
-
-                      <!-- Project Filter Logic -->
-                      <script src="filter.js"></script>
-
-                      <!-- Contact Form Logic -->
-                      <script src="contact.js"></script>
-
-                    </body>
+</body>
 
 </html>
