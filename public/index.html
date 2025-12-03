@@ -9,6 +9,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <!-- Filter Styles -->
+  <link rel="stylesheet" href="filter.css">
   <!-- VanillaTilt.js for 3D Tilt Effect -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
   <style>
@@ -221,14 +223,17 @@
         <div
           class="interactive-card bg-black/30 p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
           <h3 class="text-xl font-semibold mb-2">nursery-ecommerce website</h3>
-          <p class="text-gray-300 mb-4">vite +vue.js+ express.js +mongodb real time order and admin panel with real-time protect adding.</p>
-          <a href="https://nursery-ecommerce.vercel.app/" class="text-purple-300 hover:underline text-sm">Live Demo →</a>
+          <p class="text-gray-300 mb-4">vite +vue.js+ express.js +mongodb real time order and admin panel with real-time
+            protect adding.</p>
+          <a href="https://nursery-ecommerce.vercel.app/" class="text-purple-300 hover:underline text-sm">Live Demo
+            →</a>
         </div>
         <div
           class="interactive-card bg-black/30 p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
           <h3 class="text-xl font-semibold mb-2">Portfolio Builder</h3>
           <p class="text-gray-300 mb-4">A tool for developers to generate portfolios in seconds.</p>
-          <a href="http://subashchandraboselportflio.vercel.app" class="text-purple-300 hover:underline text-sm">View Code →</a>
+          <a href="http://subashchandraboselportflio.vercel.app" class="text-purple-300 hover:underline text-sm">View
+            Code →</a>
         </div>
         <div
           class="interactive-card bg-black/30 p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
@@ -249,84 +254,88 @@
   <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
     <div class="relative flex h-16 items-center justify-between">
 
-  
 
-  <!-- Footer -->
-  <div class="relative flex h-16 items-center justify-between">
 
-    <!-- Mobile menu button -->
-    <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-      <button type="button" id="mobile-menu-btn"
-        class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-purple-900 hover:text-white focus:outline-none">
-        <span class="sr-only">Open main menu</span>
-        <!-- Hamburger Icon -->
-        <svg id="menu-open-icon" class="w-6 h-6 block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-        </svg>
-        <!-- Close Icon -->
-        <svg id="menu-close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-    </div>
+      <!-- Footer -->
+      <div class="relative flex h-16 items-center justify-between">
 
-    
-  <!-- Footer -->
-  <footer class="py-8 text-center text-gray-400 text-sm border-t border-purple-900/20 backdrop-blur-sm bg-black/10">
-    &copy; 2025 Subash Chandra Bose S. All rights reserved.
-  </footer>
+        <!-- Mobile menu button -->
+        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+          <button type="button" id="mobile-menu-btn"
+            class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-purple-900 hover:text-white focus:outline-none">
+            <span class="sr-only">Open main menu</span>
+            <!-- Hamburger Icon -->
+            <svg id="menu-open-icon" class="w-6 h-6 block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+            <!-- Close Icon -->
+            <svg id="menu-close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
 
-  <!-- Mobile Menu Toggle Script -->
-  <script>
-    const mobileBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const openIcon = document.getElementById('menu-open-icon');
-    const closeIcon = document.getElementById('menu-close-icon');
 
-    mobileBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      openIcon.classList.toggle('hidden');
-      closeIcon.classList.toggle('hidden');
-    });
+        <!-- Footer -->
+        <footer
+          class="py-8 text-center text-gray-400 text-sm border-t border-purple-900/20 backdrop-blur-sm bg-black/10">
+          &copy; 2025 Subash Chandra Bose S. All rights reserved.
+        </footer>
 
-    // Typing Effect Logic
-    const textToType = "Subash Chandra Bose S";
-    const typingElement = document.getElementById('typing-text');
-    let charIndex = 0;
+        <!-- Mobile Menu Toggle Script -->
+        <script>
+          const mobileBtn = document.getElementById('mobile-menu-btn');
+          const mobileMenu = document.getElementById('mobile-menu');
+          const openIcon = document.getElementById('menu-open-icon');
+          const closeIcon = document.getElementById('menu-close-icon');
 
-    function type() {
-      if (charIndex < textToType.length) {
-        typingElement.textContent += textToType.charAt(charIndex);
-        charIndex++;
-        setTimeout(type, 100); // Typing speed
-      }
-    }
+          mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            openIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+          });
 
-    // Start typing when page loads
-    window.addEventListener('load', type);
+          // Typing Effect Logic
+          const textToType = "Subash Chandra Bose S";
+          const typingElement = document.getElementById('typing-text');
+          let charIndex = 0;
 
-    // Scroll Reveal Observer
-    const revealElements = document.querySelectorAll('.reveal');
+          function type() {
+            if (charIndex < textToType.length) {
+              typingElement.textContent += textToType.charAt(charIndex);
+              charIndex++;
+              setTimeout(type, 100); // Typing speed
+            }
+          }
 
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    }, { threshold: 0.1 });
+          // Start typing when page loads
+          window.addEventListener('load', type);
 
-    revealElements.forEach(el => revealObserver.observe(el));
+          // Scroll Reveal Observer
+          const revealElements = document.querySelectorAll('.reveal');
 
-    // Card Glow Interaction (Optional with Tilt)
-    const cards = document.querySelectorAll('.interactive-card');
-    cards.forEach(card => {
-      card.addEventListener('click', () => {
-        card.classList.toggle('glow-active');
-      });
-    });
-  </script>
+          const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+              }
+            });
+          }, { threshold: 0.1 });
+
+          revealElements.forEach(el => revealObserver.observe(el));
+
+          // Card Glow Interaction (Optional with Tilt)
+          const cards = document.querySelectorAll('.interactive-card');
+          cards.forEach(card => {
+            card.addEventListener('click', () => {
+              card.classList.toggle('glow-active');
+            });
+          });
+        </script>
+
+        <!-- Project Filter Logic -->
+        <script src="filter.js"></script>
 
 </body>
 

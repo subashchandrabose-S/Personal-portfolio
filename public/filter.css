@@ -1,0 +1,58 @@
+/* Category Filter Buttons */
+.category-btn {
+    padding: 0.6rem 1.5rem;
+    background: rgba(139, 92, 246, 0.1);
+    color: #d8b4fe;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-btn:hover {
+    background: rgba(139, 92, 246, 0.2);
+    border-color: rgba(139, 92, 246, 0.5);
+    transform: translateY(-2px);
+}
+
+.category-btn.active {
+    background: linear-gradient(135deg, #f97316, #fb923c);
+    color: white;
+    border-color: #f97316;
+    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
+}
+
+/* Technology Dropdown */
+.tech-dropdown {
+    padding: 0.6rem 1.5rem;
+    background: rgba(30, 27, 75, 0.5);
+    color: #e9d5ff;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    outline: none;
+    min-width: 200px;
+    transition: all 0.3s ease;
+}
+
+.tech-dropdown:hover {
+    border-color: rgba(139, 92, 246, 0.5);
+    background: rgba(30, 27, 75, 0.7);
+}
+
+.tech-dropdown:focus {
+    border-color: #a855f7;
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
+}
+
+/* Project Card Hiding */
+.project-card {
+    transition: all 0.3s ease;
+}
+
+.project-card.hide {
+    display: none;
+}
