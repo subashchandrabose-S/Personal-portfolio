@@ -24,11 +24,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Technology filter  
-    techDropdown.addEventListener('change', () => {
-        activeTech = techDropdown.value;
-        filterProjects();
-    });
+    // Technology filter (only if element exists)
+    if (techDropdown) {
+        techDropdown.addEventListener('change', () => {
+            activeTech = techDropdown.value;
+            filterProjects();
+        });
+    }
 
     // Filter logic
     function filterProjects() {

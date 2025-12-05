@@ -4,268 +4,749 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Subash Portfolio</title>
+  <title>Subash Chandra Bose S - Full Stack Developer</title>
+  <meta name="description"
+    content="Portfolio of Subash Chandra Bose S, a passionate full-stack developer specializing in modern web technologies.">
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
   <!-- Main Styles -->
   <link rel="stylesheet" href="style.css">
-  <!-- Filter Styles -->
-  <link rel="stylesheet" href="filter.css">
   <!-- Email.js -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  <!-- VanillaTilt.js for 3D Tilt Effect -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
 </head>
 
-<body class="font-sans overflow-x-hidden relative">
+<body class="font-sans overflow-x-hidden relative bg-[#0a0a0f] text-white">
 
   <!-- Animated Background -->
   <div class="bg-animated"></div>
 
-  <!-- Navbar -->
-  <nav class="bg-black/30 backdrop-blur-md text-white sticky top-0 z-50">
-    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-      <div class="relative flex h-16 items-center justify-between">
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-xl border-b border-white/5">
+    <div class="max-w-6xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <a href="#"
+          class="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 text-transparent bg-clip-text">
+          Subash Chandra Bose S
+        </a>
 
-        <!-- Mobile menu button -->
-        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-          <button type="button" id="mobile-menu-btn"
-            class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-purple-900 hover:text-white focus:outline-none">
-            <span class="sr-only">Open main menu</span>
-            <!-- Hamburger Icon -->
-            <svg id="menu-open-icon" class="w-6 h-6 block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-            <!-- Close Icon -->
-            <svg id="menu-close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#stack" class="nav-link">Stack</a>
+          <a href="#certifications" class="nav-link">Certifications</a>
+          <a href="#contact" class="nav-link">Contact</a>
         </div>
 
-        <!-- Logo / Brand -->
-        <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-          <div class="flex shrink-0 items-center">
-            <span class="text-xl font-bold text-white">Subash Chandra Bose S</span>
-          </div>
-
-          <!-- Desktop Menu -->
-          <div class="hidden sm:ml-8 sm:block">
-            <div class="flex space-x-6">
-              <a href="#home" class="rounded-md px-3 py-2 text-sm font-medium bg-purple-700 text-white">Home</a>
-              <a href="#skills"
-                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-purple-900 hover:text-white">Skills</a>
-              <a href="#projects"
-                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-purple-900 hover:text-white">Projects</a>
-              <a href="#about"
-                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-purple-900 hover:text-white">About</a>
-              <a href="#contact"
-                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-purple-900 hover:text-white">Contact</a>
-            </div>
-          </div>
-        </div>
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden text-gray-400 hover:text-white">
+          <svg id="menu-open-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="menu-close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
       </div>
-    </div>
 
-    <!-- Mobile Menu (Hidden by default) -->
-    <div id="mobile-menu" class="sm:hidden hidden bg-black/50 backdrop-blur-md">
-      <div class="space-y-1 px-2 pt-2 pb-3">
-        <a href="#home" class="block rounded-md px-3 py-2 text-base font-medium text-white bg-purple-700">Home</a>
-        <a href="#skills"
-          class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-purple-900">Skills</a>
-        <a href="#projects"
-          class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-purple-900">Projects</a>
-        <a href="#about"
-          class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-purple-900">About</a>
-        <a href="#contact"
-          class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-purple-900">Contact</a>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 space-y-2">
+        <a href="#home" class="block py-2 text-gray-300 hover:text-white">Home</a>
+        <a href="#about" class="block py-2 text-gray-300 hover:text-white">About</a>
+        <a href="#projects" class="block py-2 text-gray-300 hover:text-white">Projects</a>
+        <a href="#stack" class="block py-2 text-gray-300 hover:text-white">Stack</a>
+        <a href="#certifications" class="block py-2 text-gray-300 hover:text-white">Certifications</a>
+        <a href="#contact" class="block py-2 text-gray-300 hover:text-white">Contact</a>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <header id="home"
-    class="relative z-10 flex flex-col items-center justify-center h-screen px-6 text-center text-white">
-    <div class="w-64 h-64 mb-8 rounded-full overflow-hidden border-2 border-purple-600 shadow-2xl">
-      <img src="https://i.ibb.co/PzfYVzML/subash-first.jpg" alt="Subash" class="w-full h-full object-cover">
+  <!-- Hero/Introduction Section -->
+  <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-20">
+    <div class="max-w-4xl mx-auto text-center">
+
+      <!-- Profile Image -->
+      <div class="relative inline-block mb-8 reveal">
+        <div
+          class="w-48 h-48 md:w-56 md:h-56 mx-auto rounded-full overflow-hidden border-4 border-purple-500/30 shadow-2xl shadow-purple-500/20">
+          <img src="https://i.ibb.co/PzfYVzML/subash-first.jpg" alt="Subash Chandra Bose S"
+            class="w-full h-full object-cover">
+        </div>
+        <!-- Decorative glow -->
+        <div class="absolute -inset-4 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-2xl -z-10">
+        </div>
+      </div>
+
+      <!-- Name with Typing Effect -->
+      <div class="reveal">
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
+          Hi, I'm <span id="typing-text"
+            class="typing-cursor bg-gradient-to-r from-purple-400 to-pink-400 text-transparent bg-clip-text"></span>
+        </h1>
+      </div>
+
+      <!-- Tagline -->
+      <div class="reveal">
+        <p class="text-xl md:text-2xl text-gray-300 mb-6 max-w-2xl mx-auto">
+          Crafting digital experiences with <span class="text-purple-400 font-semibold">passion</span>,
+          <span class="text-purple-400 font-semibold">precision</span>, and
+          <span class="text-purple-400 font-semibold">purpose</span>.
+        </p>
+        <p class="text-lg text-gray-400 mb-8">
+          A passionate <span class="text-purple-300 font-medium">Full Stack Developer</span> building beautiful web
+          experiences.
+        </p>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-wrap justify-center gap-4 mb-12 reveal">
+        <a href="#projects" class="btn-primary text-lg px-8 py-3">
+          View My Work →
+        </a>
+        <a href="#contact" class="btn-secondary text-lg px-8 py-3">
+          Get In Touch
+        </a>
+      </div>
+
+      <!-- Social Links -->
+      <div class="flex justify-center gap-6 reveal">
+        <a href="https://github.com/subashchandrabose-S" target="_blank"
+          class="text-gray-400 hover:text-purple-400 transition text-lg">
+          GitHub
+        </a>
+        <span class="text-gray-600">•</span>
+        <a href="https://www.linkedin.com/in/subash-chandra-bose-s-35310932b" target="_blank"
+          class="text-gray-400 hover:text-purple-400 transition text-lg">
+          LinkedIn
+        </a>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </div>
+
     </div>
-    <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
-      Hi, I'm <span id="typing-text"
-        class="typing-cursor text-transparent bg-clip-text bg-gradient-to-r from-purple-200 to-violet-300"></span>
-    </h1>
-    <p class="text-lg md:text-2xl mb-8 max-w-2xl text-gray-200">
-      A passionate <span class="text-purple-300 font-semibold">Fullstack Developer</span> crafting beautiful and
-      responsive web experiences.
-    </p>
-  </header>
+  </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="py-20 px-6 reveal">
-    <div class="max-w-6xl mx-auto text-center text-white">
-      <h2 class="text-4xl font-bold mb-12">My Skills</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Frontend -->
-        <div
-          class="interactive-card bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
-          <h3 class="text-2xl font-semibold text-purple-300 mb-4">Frontend</h3>
-          <ul class="space-y-2 text-gray-200">
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>React.js</li>
-            <li>Vue.js</li>
-          </ul>
+  <!-- About Me Section -->
+  <section id="about" class="py-20 px-6 bg-gradient-to-b from-transparent via-purple-900/5 to-transparent">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-300 to-pink-200 text-transparent bg-clip-text">
+          About Me
+        </h2>
+        <p class="text-gray-400">Get to know me better</p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-12 items-start">
+
+        <!-- Left Column - Bio & Details -->
+        <div class="lg:col-span-2 space-y-8">
+
+          <!-- Bio -->
+          <div class="reveal">
+            <h3 class="text-2xl font-bold text-white mb-4">👋 Hello!</h3>
+            <p class="text-gray-300 leading-relaxed text-lg mb-4">
+              I'm Subash Chandra Bose S, a passionate Full Stack Developer with hands-on experience in creating
+              responsive, high-performance web solutions. I specialize in developing scalable and efficient web
+              applications using React, Vue.js, Node.js, and the MERN stack.
+            </p>
+            <p class="text-gray-400 leading-relaxed">
+              I've led and contributed to various impactful projects including an E-commerce platform, Portfolio
+              Builder, and event management systems. I'm deeply passionate about creating clean, user-friendly web
+              applications that solve real-world problems.
+            </p>
+          </div>
+
+          <!-- Core Technologies -->
+          <div class="reveal">
+            <h3 class="text-lg font-semibold text-purple-300 mb-4">Core Technologies</h3>
+            <div class="flex flex-wrap gap-3">
+              <span class="tech-tag">React.js</span>
+              <span class="tech-tag">Vue.js</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Express.js</span>
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Tailwind CSS</span>
+              <span class="tech-tag">Python</span>
+            </div>
+          </div>
+
+          <!-- Two Column Grid -->
+          <div class="grid md:grid-cols-2 gap-6">
+
+            <!-- Education -->
+            <div class="info-card reveal">
+              <h3 class="text-lg font-semibold text-purple-300 mb-4">🎓 Education</h3>
+              <div class="space-y-4">
+                <div class="border-l-2 border-purple-500/50 pl-4">
+                  <h4 class="font-medium text-white">B.E - Computer Science and Engineering</h4>
+                  <p class="text-gray-400 text-sm">Your College Name</p>
+                  <p class="text-gray-500 text-xs">2022 — Present</p>
+                </div>
+                <div class="border-l-2 border-purple-500/30 pl-4">
+                  <h4 class="font-medium text-gray-300">11th & 12th Grade</h4>
+                  <p class="text-gray-400 text-sm">Your School Name</p>
+                  <p class="text-gray-500 text-xs">2020 — 2022</p>
+                </div>
+                <div class="border-l-2 border-purple-500/20 pl-4">
+                  <h4 class="font-medium text-gray-300">10th Grade</h4>
+                  <p class="text-gray-400 text-sm">Your School Name</p>
+                  <p class="text-gray-500 text-xs">2019 — 2020</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Achievements -->
+            <div class="info-card reveal">
+              <h3 class="text-lg font-semibold text-purple-300 mb-4">🏆 Achievements</h3>
+              <ul class="space-y-3 text-gray-400">
+                <li class="flex items-start gap-2">
+                  <span class="text-yellow-500">★</span>
+                  <span>Add your achievement here</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-yellow-500">★</span>
+                  <span>Add your achievement here</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-yellow-500">★</span>
+                  <span>Add your achievement here</span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- Let's Connect -->
+          <div class="info-card reveal">
+            <h3 class="text-lg font-semibold text-purple-300 mb-4">📧 Let's Connect</h3>
+            <div class="flex flex-wrap gap-6">
+              <a href="mailto:your.email@example.com"
+                class="flex items-center gap-2 text-gray-300 hover:text-purple-400 transition">
+                <span>📩</span> your.email@example.com
+              </a>
+              <a href="https://github.com/subashchandrabose-S" target="_blank"
+                class="flex items-center gap-2 text-gray-300 hover:text-purple-400 transition">
+                <span>🔗</span> GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/subash-chandra-bose-s-35310932b" target="_blank"
+                class="flex items-center gap-2 text-gray-300 hover:text-purple-400 transition">
+                <span>💼</span> LinkedIn
+              </a>
+            </div>
+          </div>
+
         </div>
 
-        <!-- Backend -->
-        <div
-          class="interactive-card bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
-          <h3 class="text-2xl font-semibold text-purple-300 mb-4">Backend</h3>
-          <ul class="space-y-2 text-gray-200">
-            <li>Node.js</li>
-            <li>Express.js</li>
-            <li>Java</li>
-            <li>Python</li>
-          </ul>
+        <!-- Right Column - Image & Status -->
+        <div class="lg:col-span-1 reveal">
+          <div class="sticky top-32 space-y-6">
+            <!-- Profile Image -->
+            <div class="relative">
+              <div
+                class="w-64 h-64 mx-auto rounded-2xl overflow-hidden border-2 border-purple-500/30 shadow-2xl shadow-purple-500/20">
+                <img src="https://i.ibb.co/Jwg0jL3r/Whats-App-Image-2025-07-30-at-14-01-52-ff56c1f6.jpg" alt="Subash"
+                  class="w-full h-full object-cover">
+              </div>
+              <div class="absolute -top-4 -right-4 w-24 h-24 bg-purple-500/20 rounded-full blur-2xl"></div>
+              <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-pink-500/20 rounded-full blur-2xl"></div>
+            </div>
+
+            <!-- Available for Hire Badge -->
+            <div class="text-center">
+              <div
+                class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/30 rounded-full">
+                <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                <span class="text-green-400 text-sm font-medium">Available for Hire</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- Database -->
-        <div
-          class="interactive-card bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
-          <h3 class="text-2xl font-semibold text-purple-300 mb-4">Database</h3>
-          <ul class="space-y-2 text-gray-200">
-            <li>SQL</li>
-            <li>MongoDB</li>
-          </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Featured Projects Section -->
+  <section id="projects" class="py-20 px-6 bg-gradient-to-b from-transparent via-purple-900/5 to-transparent">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-300 to-pink-200 text-transparent bg-clip-text">
+          Featured Projects
+        </h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">
+          Discover my latest work in web development. Skilled in crafting responsive web apps and developing scalable
+          solutions.
+        </p>
+      </div>
+
+      <!-- Project Cards -->
+      <div class="space-y-12">
+
+        <!-- Project 1: Nursery Ecommerce -->
+        <div class="project-card reveal">
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-white mb-2">Nursery E-Commerce Website</h3>
+            <p class="text-purple-400 mb-4">Full Stack E-Commerce Platform</p>
+
+            <p class="text-gray-400 mb-6 leading-relaxed">
+              A comprehensive e-commerce platform built for nursery products with real-time order management and admin
+              panel capabilities. Features include product catalog, shopping cart, secure checkout, and real-time
+              inventory updates.
+            </p>
+
+            <div class="flex flex-wrap gap-4 mb-8">
+              <a href="https://github.com/subashchandrabose-S" target="_blank" class="btn-secondary">
+                View Repository →
+              </a>
+              <a href="https://nursery-ecommerce.vercel.app/" target="_blank" class="btn-primary">
+                Live Demo →
+              </a>
+            </div>
+
+            <!-- Key Features -->
+            <div class="mb-6">
+              <h4 class="text-lg font-semibold text-purple-300 mb-3">Key Features</h4>
+              <ul class="grid md:grid-cols-2 gap-2 text-gray-400">
+                <li class="flex items-start gap-2"><span class="text-purple-400">•</span> Real-time product management
+                </li>
+                <li class="flex items-start gap-2"><span class="text-purple-400">•</span> Admin panel with dashboard
+                </li>
+                <li class="flex items-start gap-2"><span class="text-purple-400">•</span> Secure order processing</li>
+                <li class="flex items-start gap-2"><span class="text-purple-400">•</span> Responsive mobile design</li>
+                <li class="flex items-start gap-2"><span class="text-purple-400">•</span> Real-time inventory updates
+                </li>
+                <li class="flex items-start gap-2"><span class="text-purple-400">•</span> User authentication system
+                </li>
+              </ul>
+            </div>
+
+            <!-- Deliverables -->
+            <div class="mb-6">
+              <h4 class="text-lg font-semibold text-purple-300 mb-3">Deliverables</h4>
+              <ul class="text-gray-400 space-y-1">
+                <li class="flex items-start gap-2"><span class="text-green-400">✓</span> Fully functional e-commerce
+                  platform deployed on Vercel</li>
+                <li class="flex items-start gap-2"><span class="text-green-400">✓</span> Admin dashboard with product
+                  CRUD operations</li>
+                <li class="flex items-start gap-2"><span class="text-green-400">✓</span> MongoDB-backed database with
+                  product and order schemas</li>
+                <li class="flex items-start gap-2"><span class="text-green-400">✓</span> Mobile-optimized responsive
+                  interface</li>
+              </ul>
+            </div>
+
+            <!-- Tech Stack -->
+            <div>
+              <h4 class="text-lg font-semibold text-purple-300 mb-3">Technology Stack</h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="tech-badge">Vite</span>
+                <span class="tech-badge">Vue.js</span>
+                <span class="tech-badge">Express.js</span>
+                <span class="tech-badge">MongoDB</span>
+                <span class="tech-badge">Node.js</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Portfolio Builder -->
+        <div class="project-card reveal">
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-white mb-2">Portfolio Builder</h3>
+            <p class="text-purple-400 mb-4">Developer Portfolio Generator</p>
+
+            <p class="text-gray-400 mb-6 leading-relaxed">
+              A powerful tool designed for developers to generate professional portfolios in seconds. Features
+              customizable templates, easy content management, and instant deployment capabilities.
+            </p>
+
+            <div class="flex flex-wrap gap-4 mb-8">
+              <a href="https://github.com/subashchandrabose-S" target="_blank" class="btn-secondary">
+                View Repository →
+              </a>
+              <a href="http://subashchandraboselportflio.vercel.app" target="_blank" class="btn-primary">
+                Live Demo →
+              </a>
+            </div>
+
+            <!-- Key Features -->
+            <div class="mb-6">
+              <h4 class="text-lg font-semibold text-purple-300 mb-3">Key Features</h4>
+              <ul class="grid md:grid-cols-2 gap-2 text-gray-400">
+                <li class="flex items-start gap-2"><span class="text-purple-400">•</span> Quick portfolio generation
+                </li>
+                <li class="flex items-start gap-2"><span class="text-purple-400">•</span> Customizable templates</li>
+                <li class="flex items-start gap-2"><span class="text-purple-400">•</span> Responsive design output</li>
+                <li class="flex items-start gap-2"><span class="text-purple-400">•</span> Easy content management</li>
+              </ul>
+            </div>
+
+            <!-- Tech Stack -->
+            <div>
+              <h4 class="text-lg font-semibold text-purple-300 mb-3">Technology Stack</h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="tech-badge">HTML5</span>
+                <span class="tech-badge">CSS3</span>
+                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">Tailwind CSS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: TaskFlow App -->
+        <div class="project-card reveal">
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-white mb-2">TaskFlow App</h3>
+            <p class="text-purple-400 mb-4">Minimalist Task Management</p>
+
+            <p class="text-gray-400 mb-6 leading-relaxed">
+              A clean, minimalist to-do application featuring drag-and-drop functionality and dark mode support. Built
+              for productivity enthusiasts who value simplicity and efficiency.
+            </p>
+
+            <div class="flex flex-wrap gap-4 mb-8">
+              <a href="https://github.com/subashchandrabose-S" target="_blank" class="btn-secondary">
+                View Repository →
+              </a>
+              <a href="#" class="btn-primary">
+                Live Demo →
+              </a>
+            </div>
+
+            <!-- Key Features -->
+            <div class="mb-6">
+              <h4 class="text-lg font-semibold text-purple-300 mb-3">Key Features</h4>
+              <ul class="grid md:grid-cols-2 gap-2 text-gray-400">
+                <li class="flex items-start gap-2"><span class="text-purple-400">•</span> Drag & drop task organization
+                </li>
+                <li class="flex items-start gap-2"><span class="text-purple-400">•</span> Dark mode support</li>
+                <li class="flex items-start gap-2"><span class="text-purple-400">•</span> Local storage persistence</li>
+                <li class="flex items-start gap-2"><span class="text-purple-400">•</span> Minimalist UI design</li>
+              </ul>
+            </div>
+
+            <!-- Tech Stack -->
+            <div>
+              <h4 class="text-lg font-semibold text-purple-300 mb-3">Technology Stack</h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="tech-badge">React.js</span>
+                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">CSS3</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: Department Symposium -->
+        <div class="project-card reveal">
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-white mb-2">Department Symposium Website</h3>
+            <p class="text-purple-400 mb-4">Event Management Platform</p>
+
+            <p class="text-gray-400 mb-6 leading-relaxed">
+              A dynamic event website built for college department symposiums featuring event registration, schedule
+              management, and real-time updates. Designed to handle large-scale event coordination efficiently.
+            </p>
+
+            <div class="flex flex-wrap gap-4 mb-8">
+              <a href="https://github.com/subashchandrabose-S" target="_blank" class="btn-secondary">
+                View Repository →
+              </a>
+              <a href="https://spark-25.vercel.app/" target="_blank" class="btn-primary">
+                Live Demo →
+              </a>
+            </div>
+
+            <!-- Key Features -->
+            <div class="mb-6">
+              <h4 class="text-lg font-semibold text-purple-300 mb-3">Key Features</h4>
+              <ul class="grid md:grid-cols-2 gap-2 text-gray-400">
+                <li class="flex items-start gap-2"><span class="text-purple-400">•</span> Event registration system</li>
+                <li class="flex items-start gap-2"><span class="text-purple-400">•</span> Schedule management</li>
+                <li class="flex items-start gap-2"><span class="text-purple-400">•</span> Real-time event updates</li>
+                <li class="flex items-start gap-2"><span class="text-purple-400">•</span> Responsive design</li>
+                <li class="flex items-start gap-2"><span class="text-purple-400">•</span> Admin dashboard</li>
+                <li class="flex items-start gap-2"><span class="text-purple-400">•</span> Participant management</li>
+              </ul>
+            </div>
+
+            <!-- Tech Stack -->
+            <div>
+              <h4 class="text-lg font-semibold text-purple-300 mb-3">Technology Stack</h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="tech-badge">React.js</span>
+                <span class="tech-badge">Node.js</span>
+                <span class="tech-badge">Express.js</span>
+                <span class="tech-badge">MongoDB</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center mt-16 reveal">
+        <a href="#contact"
+          class="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition font-medium">
+          Interested in working together? Let's create something amazing! →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Stack Section -->
+  <section id="stack" class="py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-300 to-pink-200 text-transparent bg-clip-text">
+          Technology Stack
+        </h2>
+        <p class="text-gray-400">Technologies I use to bring ideas to life</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 reveal">
+        <div class="tech-item">
+          <div class="tech-icon">🌐</div>
+          <p class="tech-name">HTML5</p>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon">🎨</div>
+          <p class="tech-name">CSS3</p>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon">⚡</div>
+          <p class="tech-name">JavaScript</p>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon">⚛️</div>
+          <p class="tech-name">React.js</p>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon">💚</div>
+          <p class="tech-name">Vue.js</p>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon">🎐</div>
+          <p class="tech-name">Tailwind</p>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon">🟢</div>
+          <p class="tech-name">Node.js</p>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon">🚂</div>
+          <p class="tech-name">Express.js</p>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon">☕</div>
+          <p class="tech-name">Java</p>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon">🐍</div>
+          <p class="tech-name">Python</p>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon">🗃️</div>
+          <p class="tech-name">SQL</p>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon">🍃</div>
+          <p class="tech-name">MongoDB</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="py-20 px-6 bg-black/20 backdrop-blur-sm reveal">
-    <div class="max-w-6xl mx-auto text-white">
-      <h2
-        class="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-purple-300 to-pink-200 text-transparent bg-clip-text">
-        About Me
-      </h2>
-      <div class="grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <p class="text-lg leading-relaxed text-gray-200">
-            I'm a fullstack developer passionate about building clean, scalable, and user-friendly web applications.
-          </p>
-          <p class="mt-4 text-gray-300">
-            I specialize in MERN stack, React, Node.js, and modern frontend frameworks. I love turning ideas into
-            reality.
-          </p>
-          <div class="mt-8 flex space-x-6 justify-center sm:justify-start">
-            <a href="https://github.com/subashchandrabose-S"
-              class="text-purple-300 hover:text-purple-100 transition hover:underline">GitHub</a>
-            <a href="https://www.linkedin.com/in/subash-chandra-bose-s-35310932b"
-              class="text-purple-300 hover:text-purple-100 transition hover:underline">LinkedIn</a>
-          </div>
-        </div>
-        <div class="flex justify-center">
-          <div
-            class="w-60 h-60 rounded-full bg-gradient-to-tr from-purple-700 to-violet-900 flex items-center justify-center shadow-2xl overflow-hidden">
-            <img src="https://i.ibb.co/Jwg0jL3r/Whats-App-Image-2025-07-30-at-14-01-52-ff56c1f6.jpg" alt="Subash"
-              class="w-full h-full object-cover">
-          </div>
-        </div>
+  <!-- Certifications Section -->
+  <section id="certifications" class="py-20 px-6 bg-gradient-to-b from-transparent via-purple-900/5 to-transparent">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-300 to-pink-200 text-transparent bg-clip-text">
+          Certifications
+        </h2>
+        <p class="text-gray-400">Professional certifications and credentials that validate my expertise</p>
       </div>
-    </div>
-  </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="py-20 px-6 reveal">
-    <div class="max-w-6xl mx-auto text-center text-white">
-      <h2 class="text-4xl font-bold mb-12 bg-gradient-to-r from-purple-300 to-pink-200 text-transparent bg-clip-text">
-        My Projects
-      </h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div
-          class="interactive-card bg-black/30 p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
-          <h3 class="text-xl font-semibold mb-2">nursery-ecommerce website</h3>
-          <p class="text-gray-300 mb-4">vite +vue.js+ express.js +mongodb real time order and admin panel with
-            real-time protect adding.</p>
-          <a href="https://nursery-ecommerce.vercel.app/" class="text-purple-300 hover:underline text-sm">Live Demo
-            →</a>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
+
+        <div class="cert-card-new">
+          <h3 class="text-xl font-semibold text-white mb-3">Full Stack Web Development</h3>
+          <p class="text-gray-400 text-sm mb-4">Online Course Platform • 2024</p>
+          <div>
+            <p class="text-purple-400 text-sm font-medium mb-2">Skills Validated</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">MongoDB</span>
+            </div>
+          </div>
         </div>
-        <div
-          class="interactive-card bg-black/30 p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
-          <h3 class="text-xl font-semibold mb-2">Portfolio Builder</h3>
-          <p class="text-gray-300 mb-4">A tool for developers to generate portfolios in seconds.</p>
-          <a href="http://subashchandraboselportflio.vercel.app" class="text-purple-300 hover:underline text-sm">View
-            Code →</a>
+
+        <div class="cert-card-new">
+          <h3 class="text-xl font-semibold text-white mb-3">JavaScript Advanced Concepts</h3>
+          <p class="text-gray-400 text-sm mb-4">Certification Authority • 2024</p>
+          <div>
+            <p class="text-purple-400 text-sm font-medium mb-2">Skills Validated</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">ES6+</span>
+              <span class="skill-tag">Async/Await</span>
+              <span class="skill-tag">DOM</span>
+            </div>
+          </div>
         </div>
-        <div
-          class="interactive-card bg-black/30 p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
-          <h3 class="text-xl font-semibold mb-2">TaskFlow App</h3>
-          <p class="text-gray-300 mb-4">Minimalist to-do app with drag & drop and dark mode.</p>
-          <a href="#" class="text-purple-300 hover:underline text-sm">Live Demo →</a>
+
+        <div class="cert-card-new">
+          <h3 class="text-xl font-semibold text-white mb-3">React.js Fundamentals</h3>
+          <p class="text-gray-400 text-sm mb-4">Tech Academy • 2023</p>
+          <div>
+            <p class="text-purple-400 text-sm font-medium mb-2">Skills Validated</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Hooks</span>
+              <span class="skill-tag">State</span>
+            </div>
+          </div>
         </div>
-        <div
-          class="interactive-card bg-black/30 p-6 rounded-xl border border-purple-800/30 hover:border-purple-500 transition transform hover:scale-105">
-          <h3 class="text-xl font-semibold mb-2">Department Symposim Website</h3>
-          <p class="text-gray-300 mb-4">Event website with registration and schedule management.</p>
-          <a href="https://spark-25.vercel.app/" class="text-purple-300 hover:underline text-sm">Live Explore →</a>
+
+        <div class="cert-card-new">
+          <h3 class="text-xl font-semibold text-white mb-3">Node.js Backend Development</h3>
+          <p class="text-gray-400 text-sm mb-4">Developer Institute • 2023</p>
+          <div>
+            <p class="text-purple-400 text-sm font-medium mb-2">Skills Validated</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">Express</span>
+              <span class="skill-tag">REST API</span>
+              <span class="skill-tag">Auth</span>
+            </div>
+          </div>
         </div>
+
+        <div class="cert-card-new">
+          <h3 class="text-xl font-semibold text-white mb-3">Database Management</h3>
+          <p class="text-gray-400 text-sm mb-4">Database Academy • 2023</p>
+          <div>
+            <p class="text-purple-400 text-sm font-medium mb-2">Skills Validated</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">MongoDB</span>
+              <span class="skill-tag">CRUD</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-card-new">
+          <h3 class="text-xl font-semibold text-white mb-3">Modern Web Design</h3>
+          <p class="text-gray-400 text-sm mb-4">Design School • 2022</p>
+          <div>
+            <p class="text-purple-400 text-sm font-medium mb-2">Skills Validated</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">UI/UX</span>
+              <span class="skill-tag">CSS3</span>
+              <span class="skill-tag">Responsive</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-20 px-6 bg-black/20 backdrop-blur-sm reveal">
-    <div class="max-w-4xl mx-auto text-white">
-      <h2
-        class="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-purple-300 to-pink-200 text-transparent bg-clip-text">
-        Get In Touch
-      </h2>
-      <p class="text-center text-gray-400 mb-12">Have a project in mind? Let's work together!</p>
+  <section id="contact" class="py-20 px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-300 to-pink-200 text-transparent bg-clip-text">
+          Let's Work Together
+        </h2>
+        <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+          Ready to bring your ideas to life? I'm always excited to work on interesting projects and collaborate with
+          amazing people. Let's create something extraordinary together.
+        </p>
+      </div>
 
-      <form class="contact-form" id="contact-form">
-        <div class="grid md:grid-cols-2 gap-6 mb-6">
-          <div>
-            <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
-            <input type="text" id="name" name="name" required placeholder="Your Name" />
+      <!-- Quick Actions -->
+      <div class="flex flex-wrap justify-center gap-4 mb-12 reveal">
+        <a href="mailto:your.email@example.com" class="btn-primary text-lg px-8 py-4">
+          📧 Send Email
+        </a>
+        <a href="#" class="btn-secondary text-lg px-8 py-4">
+          📄 Download Resume
+        </a>
+      </div>
+
+      <!-- Or use contact form -->
+      <div class="text-center mb-8 reveal">
+        <p class="text-gray-500">Or use the contact form below</p>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-card reveal">
+        <form class="contact-form" id="contact-form">
+          <div class="grid md:grid-cols-2 gap-6 mb-6">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
+              <input type="text" id="name" name="name" required placeholder="Your Name" />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email</label>
+              <input type="email" id="email" name="email" required placeholder="your.email@example.com" />
+            </div>
           </div>
-          <div>
-            <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email</label>
-            <input type="email" id="email" name="email" required placeholder="your.email@example.com" />
+
+          <div class="mb-6">
+            <label for="subject" class="block text-sm font-medium text-gray-300 mb-2">Subject</label>
+            <input type="text" id="subject" name="subject" required placeholder="What's this about?" />
           </div>
-        </div>
 
-        <div class="mb-6">
-          <label for="subject" class="block text-sm font-medium text-gray-300 mb-2">Subject</label>
-          <input type="text" id="subject" name="subject" required placeholder="What's this about?" />
-        </div>
+          <div class="mb-6">
+            <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Your message here..."></textarea>
+          </div>
 
-        <div class="mb-6">
-          <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
-          <textarea id="message" name="message" rows="5" required placeholder="Your message here..."></textarea>
-        </div>
+          <div class="text-center">
+            <button type="submit" id="submit-btn" class="btn-primary px-8 py-3">
+              <span id="btn-text">Send Message</span>
+            </button>
+          </div>
 
-        <div class="text-center">
-          <button type="submit" id="submit-btn">
-            <span id="btn-text">Send Message</span>
-          </button>
-        </div>
-
-        <div id="form-message" class="hidden"></div>
-      </form>
+          <div id="form-message" class="hidden"></div>
+        </form>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="py-8 text-center text-gray-400 text-sm border-t border-purple-900/20 backdrop-blur-sm bg-black/10">
-    &copy; 2025 Subash Chandra Bose S. All rights reserved.
+  <footer class="py-8 text-center border-t border-white/5">
+    <p class="text-gray-500 text-sm">© 2025 Subash Chandra Bose S. All rights reserved.</p>
   </footer>
 
-  <!-- Mobile Menu Toggle Script -->
+  <!-- Scripts -->
   <script>
+    // Mobile Menu Toggle
     const mobileBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const openIcon = document.getElementById('menu-open-icon');
@@ -277,23 +758,30 @@
       closeIcon.classList.toggle('hidden');
     });
 
-    // Typing Effect Logic
-    const textToType = "Subash Chandra Bose S";
-    const typingElement = document.getElementById('typing-text');
-    let charIndex = 0;
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        openIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      });
+    });
 
-    function type() {
-      if (charIndex < textToType.length) {
-        typingElement.textContent += textToType.charAt(charIndex);
-        charIndex++;
-        setTimeout(type, 100); // Typing speed
-      }
-    }
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
 
-    // Start typing when page loads
-    window.addEventListener('load', type);
-
-    // Scroll Reveal Observer
+    // Scroll Reveal Animation
     const revealElements = document.querySelectorAll('.reveal');
 
     const revealObserver = new IntersectionObserver((entries) => {
@@ -306,17 +794,43 @@
 
     revealElements.forEach(el => revealObserver.observe(el));
 
-    // Card Glow Interaction (Optional with Tilt)
-    const cards = document.querySelectorAll('.interactive-card');
-    cards.forEach(card => {
-      card.addEventListener('click', () => {
-        card.classList.toggle('glow-active');
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (scrollY >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
       });
     });
-  </script>
 
-  <!-- Project Filter Logic -->
-  <script src="filter.js"></script>
+    // Typing Effect
+    const textToType = "Subash Chandra Bose S";
+    const typingElement = document.getElementById('typing-text');
+    let charIndex = 0;
+
+    function type() {
+      if (typingElement && charIndex < textToType.length) {
+        typingElement.textContent += textToType.charAt(charIndex);
+        charIndex++;
+        setTimeout(type, 100);
+      }
+    }
+
+    // Start typing when page loads
+    window.addEventListener('load', type);
+  </script>
 
   <!-- Contact Form Logic -->
   <script src="contact.js"></script>
